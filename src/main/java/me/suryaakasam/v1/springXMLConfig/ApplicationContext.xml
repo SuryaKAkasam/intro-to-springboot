@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="colorUtils" class="me.suryaakasam.v1.springXMLConfig.message.utilities.ColorUtils" />
+    <bean id="time12HrsUtils" class="me.suryaakasam.v1.springXMLConfig.message.utilities.Time12Hrs" />
+    <bean id="time24HrsUtils" class="me.suryaakasam.v1.springXMLConfig.message.utilities.Time24Hrs" />
+
+    <bean id="whatsapp" class="me.suryaakasam.v1.springXMLConfig.message.service.WhatsappMessenger">
+        <constructor-arg name="colorUtils" ref="colorUtils" />
+        <constructor-arg name="timeUtils" ref="time12HrsUtils" />
+    </bean>
+
+    <bean id="telegram" class="me.suryaakasam.v1.springXMLConfig.message.service.TelegramMessenger">
+        <constructor-arg name="colorUtils" ref="colorUtils" />
+        <property name="timeUtils" ref="time24HrsUtils" />
+    </bean>
+
+    <bean id="gupshup" class="me.suryaakasam.v1.springXMLConfig.message.service.GupshupMessenger">
+        <property name="colorUtils" ref="colorUtils" />
+        <property name="timeUtils" ref="time12HrsUtils" />
+    </bean>
+
+    <bean id="messenger" class="me.suryaakasam.v1.springXMLConfig.message.controller.MessageController">
+        <property name="messageService" ref="gupshup" />
+    </bean>
+</beans>
