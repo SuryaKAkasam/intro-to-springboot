@@ -1,0 +1,17 @@
+spring:
+  port: 8080
+  profiles.active: dev
+app:
+  environment: Default
+---
+spring:
+  profiles: dev
+  port: 8081
+app:
+  environment: Development
+---
+spring:
+  profiles: qa
+  port: 8082
+app:
+  environment: QualityAssurance

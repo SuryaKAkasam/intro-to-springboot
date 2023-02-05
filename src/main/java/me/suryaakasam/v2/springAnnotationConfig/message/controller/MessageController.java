@@ -1,11 +1,11 @@
-package me.suryaakasam.message.controller;
+package me.suryaakasam.v2.springAnnotationConfig.message.controller;
 
-import me.suryaakasam.message.service.MessageService;
+import me.suryaakasam.v2.springAnnotationConfig.message.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
+@Component
 public class MessageController {
     private final MessageService messageService;
 

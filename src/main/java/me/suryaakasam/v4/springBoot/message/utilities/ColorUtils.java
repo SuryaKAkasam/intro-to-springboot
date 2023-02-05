@@ -1,11 +1,11 @@
-package me.suryaakasam.message.service;
+package me.suryaakasam.v4.springBoot.message.utilities;
 
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
-public class FormatService {
+public class ColorUtils {
     private String addColor(String ansiColor, String str) {
         String ANSI_RESET = "\u001B[0m";
         return ansiColor + str + ANSI_RESET;
